@@ -1,4 +1,3 @@
-TEST
 # yard-sale-flipper
 Integrates ebay api and barcode scanner to quickly see if a product could be profitable or not.
 

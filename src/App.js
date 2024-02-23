@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import bcd from '@mdn/browser-compat-data' assert { type: 'json' };
+import Html5QrcodePlugin from './components/HtmlQrcodeScannerPlugin'
 
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [displayedValue, setDisplayedValue] = useState('');
+  const [decodedText, setDecodedText] = useState('');
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -13,6 +14,12 @@ function App() {
 
   const handleDisplay = () => {
     setDisplayedValue(inputValue);
+  };
+
+  const onNewScanResult = (decodedText, decodedResult) => {
+    setDecodedText(decodedText)
+
+      // handle decoded results here
   };
 
   return (
@@ -28,6 +35,15 @@ function App() {
           <button onClick={handleDisplay}>submit</button>
           <p>Displayed Value: {displayedValue}</p>
         </div>
+      </div>
+      <Html5QrcodePlugin
+            fps={10}
+            qrbox={250}
+            disableFlip={false}
+            qrCodeSuccessCallback={onNewScanResult}
+        />
+      <div className='container-wrapper'>
+        <a href={decodedText}>link</a>
       </div>
     </div>
   );

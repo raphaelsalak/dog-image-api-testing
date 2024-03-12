@@ -1,0 +1,19 @@
+.dog-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+    column-gap: 10px;
+    row-gap: 10px;
+
+}
+.img {
+    height: 500px;
+    width: 500px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}

@@ -8,6 +8,7 @@ function App() {
   const [displayedValue, setDisplayedValue] = useState('');
   const [decodedText, setDecodedText] = useState('');
   const [data, setData] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -16,7 +17,7 @@ function App() {
   const handleDisplay = async () => {
     const response = await fetch('https://dog.ceo/api/breeds/image/random')
     const fetchedData = await response.json()
-    setData(fetchedData)
+    setImageUrl(fetchedData.message)
   };
 
   const onNewScanResult = (decodedText, decodedResult) => {
@@ -27,7 +28,6 @@ function App() {
 
   return (
     <div className="app">
-      <div className='container-wrapper'>
         <div className='container'>
           <input 
             type="text" 
@@ -38,17 +38,25 @@ function App() {
           <button onClick={handleDisplay}>submit</button>
           <p>Displayed Value: {displayedValue}</p>
         </div>
-      </div>
-      <Html5QrcodePlugin
-            fps={10}
-            qrbox={250}
-            disableFlip={false}
-            qrCodeSuccessCallback={onNewScanResult}
-        />
-      <div className='container-wrapper'>
-        <a href={decodedText}>link</a>
-      </div>
-      <div>{data?.message}</div>
+        <Html5QrcodePlugin
+              fps={10}
+              qrbox={250}
+              disableFlip={false}
+              qrCodeSuccessCallback={onNewScanResult}
+          />
+        <div className='container'>
+          <a href={decodedText}>link</a>
+        </div>
+        <div className='dog-container'>
+          {imageUrl && <img src={imageUrl} alt="Displayed Image" />}
+          {!imageUrl && <p>No image selected</p>}
+          {imageUrl && <img src={imageUrl} alt="Displayed Image" />}
+          {!imageUrl && <p>No image selected</p>}
+          {imageUrl && <img src={imageUrl} alt="Displayed Image" />}
+          {!imageUrl && <p>No image selected</p>}
+          {imageUrl && <img src={imageUrl} alt="Displayed Image" />}
+          {!imageUrl && <p>No image selected</p>}
+        </div>
     </div>
   );
 }

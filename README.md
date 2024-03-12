@@ -1,5 +1,5 @@
-# yard-sale-flipper (MVP)
-Integrates ebay api and barcode scanner to quickly see if a product could be profitable or not.
+#Dog images
+Integrates dog api to display an image of a new dog on the screen.
 
 # Getting Started with Create React App
 

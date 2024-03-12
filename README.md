@@ -1,4 +1,4 @@
-#Dog images
+# Dog images
 Integrates dog api to display an image of a new dog on the screen.
 
 # Getting Started with Create React App

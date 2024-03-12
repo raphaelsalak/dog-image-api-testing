@@ -7,13 +7,16 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [displayedValue, setDisplayedValue] = useState('');
   const [decodedText, setDecodedText] = useState('');
+  const [data, setData] = useState(null);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleDisplay = () => {
-    setDisplayedValue(inputValue);
+  const handleDisplay = async () => {
+    const response = await fetch('https://dog.ceo/api/breeds/image/random')
+    const fetchedData = await response.json()
+    setData(fetchedData)
   };
 
   const onNewScanResult = (decodedText, decodedResult) => {
@@ -45,6 +48,7 @@ function App() {
       <div className='container-wrapper'>
         <a href={decodedText}>link</a>
       </div>
+      <div>{data?.message}</div>
     </div>
   );
 }

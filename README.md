@@ -1,5 +1,5 @@
 # Dog images
-Integrates dog api to display an image of a new dog on the screen.
+Integrates dog api to display a new image of a dog on the screen everytime the submit button is clicked.
 
 # Getting Started with Create React App
 
